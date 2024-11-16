@@ -3,8 +3,6 @@ import BudgetSetter from './components/BudgetSetter';
 import ExpenseForm from './components/ExpenseForm';
 import ExpensesOverview from './components/ExpensesOverview';
 import ExpenseList from './components/ExpenseList';
-import BudgetForecast from './components/BudgetForecast';
-import SavingsGoal from './components/SavingsGoal';
 import './styles/style.css';
 
 export interface Expense {
@@ -40,7 +38,7 @@ const App: React.FC = () => {
 
   return (
     <div className="container">
-      <h1>Expense Tracker</h1>
+      <h1>Noel's Expense Tracker</h1>
       
       {showBudgetWarning && (
         <div className="warning-message">
@@ -49,10 +47,8 @@ const App: React.FC = () => {
       )}
 
       <BudgetSetter onSetBudget={handleSetBudget} />
-      <SavingsGoal onSetSavingsGoal={handleSetSavingsGoal} savingsGoal={savingsGoal} budget={budget} expenses={expenses} />
       <ExpenseForm onAddExpense={handleAddExpense} />
       <ExpensesOverview expenses={expenses} budget={budget} />
-      <BudgetForecast expenses={expenses} budget={budget} />
       <ExpenseList expenses={expenses} />
     </div>
   );
